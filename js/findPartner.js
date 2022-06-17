@@ -1,5 +1,19 @@
 "use strict"
 const cards = document.querySelectorAll(".card");
+const button = document.querySelector(".center");
+
+const showGame = () => {
+  button.style.display = "none";
+  
+    cards.forEach((element) => {
+      element.style.display = "flex";
+    });
+  
+};
+
+button.addEventListener("click", () => {
+  showGame();
+});
 
 const reveal = (e) => {
   const currentCard = e.currentTarget;
