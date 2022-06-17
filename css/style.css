@@ -1,17 +1,42 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body{
+  margin: 100px ;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   background-image: url(../images/2823368.jpg);
   
 }
-body > main{
+/* Titulo principal*/
+main{
+ border: 1px solid red;
+ width: 35%;
+ height: 1000px;
+  text-align: center;
   color: aliceblue;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  
+  
 }
+
+
 body > section {
   font-family: sans-serif;
   font-weight: bold;
   display: flex;
   flex-wrap: wrap;
   
+}
+/*cards Container*/
+.container{
+  max-width: 65%;
+  margin: auto;
+
 }
 
 .card {
