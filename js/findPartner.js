@@ -1,9 +1,11 @@
 "use strict";
 const cards = document.querySelectorAll(".card");
 const button = document.querySelector(".center");
+const p = document.querySelector("p");
 
 const showGame = () => {
   button.style.display = "none";
+  p.style.display= "block"
 
   cards.forEach((element) => {
     element.style.display = "flex";
