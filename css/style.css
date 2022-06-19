@@ -1,15 +1,42 @@
-body {
-  background-image: url(../images/2823368.jpg);
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-body > main {
+body {
+  margin: 100px;
+  /*display: flex;
+  flex-wrap: wrap;*/
+  align-items: center;
+  background-image: url(../images/2823368.jpg);
+  background-size: cover;
+  height: 100vh;
+}
+/* Titulo principal*/
+main {
+  border: 1px solid red;
+  width: 35%;
+  /*height: 1000px;*/
+  text-align: center;
+
   color: aliceblue;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
 body > section {
   font-family: sans-serif;
   font-weight: bold;
   display: flex;
   flex-wrap: wrap;
+
+}
+/*cards Container*/
+.container {
+  max-width: 75%;
+  margin: auto;
 }
 
 .card {
@@ -34,6 +61,7 @@ body > section {
   height: 100%;
   width: 100%;
   background-image: url(../images/backgQuestion.png);
+  background-size: cover;
   display: grid;
   place-content: center;
   font-size: 8rem;
@@ -129,3 +157,70 @@ body > section {
 .center {
   margin-top: 300px;
 }
+
+
+/*Media Query*/
+
+/*@media (max-width:420px){
+  
+  main{
+    border: 1px solid red;
+    width: 0%;
+    height: 0px;
+  
+     
+   }
+   
+  .container{
+    
+    width: 100%;
+    margin: auto;
+  
+  }
+   
+    
+  .content {
+    
+    width: 25px;
+    height: 35px;
+    display: grid;
+    grid-area: "card1 card2"
+    "card3 card4"
+    "card5 card6"
+    "card7 card8"
+    "card9 card10"
+    "card11 card12"
+    "card13 card14"
+    "card15 card16";
+   }
+    
+   .card{
+  
+   }
+ 
+  .card1{grid-area: "card1";}
+  .card2{grid-area: "card2";}
+  .card3{grid-area: "card3";}
+  .card4{grid-area: "card4";}
+  .card5{grid-area: "card5";}
+  .card6{grid-area: "card6";}
+  .card7{grid-area: "card7";}
+  .card8{grid-area: "card8";}
+  .card9{grid-area: "card9";}
+  .card10{grid-area: "card10";}
+  .card11{grid-area: "card11";}
+  .card12{grid-area: "card12";}
+  .card13{grid-area: "card13";}
+  .card14{grid-area: "card14";}
+  .card15{grid-area: "card15";}
+  .card16{grid-area: "card16";}
+
+  .container{
+    max-width: 100%;
+    margin: auto;
+  
+  }
+
+
+}*/
+
