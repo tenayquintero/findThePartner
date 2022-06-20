@@ -166,29 +166,19 @@ p {
 
 /*Media Query*/
 
-@media (max-width: 610px) {
-  .main p{
-    text-align: center;
-  }
-  .board{
-    max-width: 50%;
-    max-height: 60%;
-    flex-direction: row;
-  }
-  .card{
-    width: calc(25% - 10px);
-    height: calc(30% - 25px);
-  }
-  /*.back{
-    width: 10px;
-    height: 25px;
-  }*/
-  
-  /*.content {
-    width: 90%;
-    height: 90%;
-    /*transition: transform 1s;
-    transform-style: preserve-3d;*/
-  
 
-}
+
+  @media (max-width: 675px) {
+    .main p{
+      text-align: center;
+    }
+    .board{
+      max-width: 50%;
+      max-height: 60%;
+      flex-direction: row;
+    }
+  
+    
+  
+  }
+
