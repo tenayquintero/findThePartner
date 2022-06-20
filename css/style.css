@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 body {
+  
   color: aliceblue;
   display: grid;
   place-content: center;
@@ -26,8 +27,12 @@ p {
   display: none;
   font-size: 30px;
   user-select: none;
+  text-shadow: 1px 1px white;
+  /*padding: 15px;*/
+  margin-left: 10px;
 }
 .board {
+ 
   margin: auto;
   width: 600px;
   height: 600px;
@@ -160,6 +165,7 @@ p {
 }
 
 /*Media Query*/
+
 
 
   @media (max-width: 675px) {
