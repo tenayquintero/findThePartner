@@ -2,12 +2,14 @@
 const cards = document.querySelectorAll(".card");
 const button = document.querySelector(".center");
 const p = document.querySelector("p");
-const audio = new Audio("../sounds/barajar.mp3");
+const winner = document.querySelector(".winner ")
+// const audio = new Audio("../sounds/barajar.mp3");
 
 
 let isTheCardFlipped = false;
 let firstCard, secondCard;
 let count = 1;
+let marker=0;
 
 /**
  * ########################
@@ -32,10 +34,10 @@ const showGame = () => {
   p.style.display = "block";
   let num = 1;
   let drawCards = setInterval(() => {
-    if (num === 17) {
+    if (num === 5) {
       clearInterval(drawCards);
     } else {
-      audio.play();
+      // audio.play();
       document.querySelector(".card" + num++).style.display = "flex";
       
     }
@@ -75,9 +77,23 @@ const reveal = (e) => {
  * ###############################################
  */
 function compareCards() {
-  firstCard.dataset.emoji === secondCard.dataset.emoji
+  let same =(firstCard.dataset.emoji === secondCard.dataset.emoji);
+  same
     ? removeReveal() 
     : removeFlipped();
+
+    if(same){
+      marker++;
+     
+    }
+    if(marker === 2){
+   
+    
+    cards.forEach((card)=>(card.style.display="none"))
+     button.style.display = "flex";  
+    // winner.style.display = "inline";
+    }
+    console.log(winner)
    
 }
 /**

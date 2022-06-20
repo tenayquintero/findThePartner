@@ -89,6 +89,17 @@ p {
   transform: rotateY(180deg);
   transition: transform 0.5s;
 }
+.winner {
+  border: solid 2px red;
+ 
+  
+  /* height: 400px;
+  width: 350px; */
+  font-size: 3rem;
+  color: aliceblue;
+  /* display: none; */
+}
+
 
 /*########
 ##BUTTON##
