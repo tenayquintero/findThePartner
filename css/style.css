@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 body {
-  
   color: aliceblue;
   display: grid;
   place-content: center;
@@ -23,13 +22,12 @@ body {
   color: aliceblue;
   font-family: Georgia, "Times New Roman", Times, serif;
 } */
-p{
+p {
   display: none;
   font-size: 30px;
   user-select: none;
 }
 .board {
-  /* border: 1px solid red; */
   margin: auto;
   width: 600px;
   height: 600px;
@@ -56,7 +54,6 @@ p{
 }
 
 .content {
-  /* position: absolute; */
   width: 100%;
   height: 100%;
   transition: transform 1s;
@@ -161,8 +158,6 @@ p{
     filter: hue-rotate(360deg);
   }
 }
-
-
 
 /*Media Query*/
 
