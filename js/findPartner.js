@@ -97,7 +97,7 @@ function compareCards() {
  */
 newGame.addEventListener("click", () => {
   showGame();
-  //reveal
+
   newGame.style.display = "none";
   winner.style.display = "none";
   p.textContent = "Movimientos 0";
