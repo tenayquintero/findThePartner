@@ -22,6 +22,7 @@ body {
   color: aliceblue;
   font-family: Georgia, "Times New Roman", Times, serif;
 } */
+
 p {
   display: none;
   font-size: 30px;
@@ -90,16 +91,13 @@ p {
   transition: transform 0.5s;
 }
 .winner {
-  border: solid 2px red;
- 
-  
-  /* height: 400px;
-  width: 350px; */
   font-size: 3rem;
   color: aliceblue;
-  /* display: none; */
+  display: none;
 }
-
+#newGame{
+  display: none;
+}
 
 /*########
 ##BUTTON##
