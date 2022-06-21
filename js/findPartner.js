@@ -34,7 +34,7 @@ const showGame = () => {
   p.style.display = "block";
   let num = 1;
   let drawCards = setInterval(() => {
-    if (num === 5) {
+    if (num === 17) {
       clearInterval(drawCards);
     } else {
       document.querySelector(".card" + num++).style.display = "flex";
@@ -84,7 +84,7 @@ function compareCards() {
     marker++;
     console.log(marker);
   }
-  if (marker === 2) {
+  if (marker === 8) {
     cards.forEach((card) => (card.style.display = "none"));
     winner.style.display = "flex";
     newGame.style.display = "flex";
@@ -97,7 +97,7 @@ function compareCards() {
  */
 newGame.addEventListener("click", () => {
   showGame();
-  //reveal
+
   newGame.style.display = "none";
   winner.style.display = "none";
   p.textContent = "Movimientos 0";
