@@ -2,12 +2,14 @@
 const cards = document.querySelectorAll(".card");
 const button = document.querySelector(".center");
 const p = document.querySelector("p");
-const audio = new Audio("../sounds/barajar.mp3");
-
+const winner = document.querySelector(".winner");
+const newGame = document.getElementById("newGame");
 
 let isTheCardFlipped = false;
 let firstCard, secondCard;
 let count = 1;
+let marker = 0;
+let waitTurn = false;
 
 /**
  * ########################
@@ -32,12 +34,10 @@ const showGame = () => {
   p.style.display = "block";
   let num = 1;
   let drawCards = setInterval(() => {
-    if (num === 17) {
+    if (num === 5) {
       clearInterval(drawCards);
     } else {
-      audio.play();
       document.querySelector(".card" + num++).style.display = "flex";
-      
     }
   }, 80);
 };
@@ -53,8 +53,11 @@ button.addEventListener("click", () => {
 */
 
 const reveal = (e) => {
+  if (waitTurn) return;
+
   const currentCard = e.currentTarget;
   currentCard.classList.add("flipped");
+  if (currentCard === firstCard) return;
 
   //Hacemos el primer click
   if (!isTheCardFlipped) {
@@ -75,27 +78,62 @@ const reveal = (e) => {
  * ###############################################
  */
 function compareCards() {
-  firstCard.dataset.emoji === secondCard.dataset.emoji
-    ? removeReveal() 
-    : removeFlipped();
-   
+  let same = firstCard.dataset.emoji === secondCard.dataset.emoji;
+  same ? removeReveal() : removeFlipped();
+  if (same) {
+    marker++;
+    console.log(marker);
+  }
+  if (marker === 2) {
+    cards.forEach((card) => (card.style.display = "none"));
+    winner.style.display = "flex";
+    newGame.style.display = "flex";
+  }
 }
+/**
+ * ########################
+ * ##REINICIAR LA PARTIDA##
+ * ########################
+ */
+newGame.addEventListener("click", () => {
+  showGame();
+  //reveal
+  newGame.style.display = "none";
+  winner.style.display = "none";
+  p.textContent = "Movimientos 0";
+  count = 1;
+  marker = 0;
+
+  cards.forEach((card) => {
+    card.classList.remove("flipped");
+    card.addEventListener("click", reveal);
+    let posicionRandom = Math.floor(Math.random() * 3);
+    card.style.order = posicionRandom;
+  });
+});
+
 /**
  * eliminamos la funcion click
  */
 function removeReveal() {
   firstCard.removeEventListener("click", reveal);
   secondCard.removeEventListener("click", reveal);
-  
+  nullBoard();
 }
 /**
  * eliminamos el giro de la carta
  */
 function removeFlipped() {
+  waitTurn = true;
   setTimeout(() => {
     firstCard.classList.remove("flipped");
     secondCard.classList.remove("flipped");
+    nullBoard();
   }, 1000);
+}
+function nullBoard() {
+  [isTheCardFlipped, waitTurn] = [false, false];
+  [firstCard, secondCard] = [null, null];
 }
 for (const card of cards) {
   card.addEventListener("click", reveal);

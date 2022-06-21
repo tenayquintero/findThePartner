@@ -23,6 +23,7 @@ body {
   color: aliceblue;
   font-family: Georgia, "Times New Roman", Times, serif;
 } */
+
 p {
   display: none;
   font-size: 30px;
@@ -93,6 +94,14 @@ p {
 .card.flipped .content {
   transform: rotateY(180deg);
   transition: transform 0.5s;
+}
+.winner {
+  font-size: 3rem;
+  color: aliceblue;
+  display: none;
+}
+#newGame{
+  display: none;
 }
 
 /*########
