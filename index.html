@@ -9,11 +9,16 @@
   </head>
   <body>
     <main class="main">
+      <ul id="listaDeUsuarios">
+        <li class="gold">🏆</li>
+        <li class="silver">🥈</li>
+      </ul>
       <p>Movimientos 0</p>
+      <a href="http://127.0.0.1:5500/index.html">volver a jugar</a>
     </main>
+     
     <section class="winner">😎 LO HAS CONSEGUIDO!!!</section>
     <section class="board">
-      
       <div class="center">
         <div class="outer button">
           <button>¿JUGAMOS?</button>
@@ -22,11 +27,12 @@
         </div>
       </div>
       <div class="center" id="newGame">
-         <div class="outer button">
+        <div class="outer button">
           <button>¿JUGAMOS DE NUEVO?</button>
           <span></span>
           <span></span>
         </div>
+      </div>
       <section class="card card1" data-emoji="ghost">
         <div class="content">
           <div class="front"></div>
@@ -132,8 +138,17 @@
           <div class="front"></div>
           <div class="back">🥶</div>
         </div>
-        </section>
-     </section>
+      </section>
+     <section id="pasasteLiga">
+        <form name="formulario">
+          <label for="user">Nombre</label>
+          <input type="text" name="user" id="inputName" />
+        </form>
+        <button class="registrarse">registrarse</button>
+      </section>
+
+     
+    </section>
     <script src="./js/findPartner.js"></script>
   </body>
 </html>

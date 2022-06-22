@@ -4,6 +4,8 @@ const button = document.querySelector(".center");
 const p = document.querySelector("p");
 const winner = document.querySelector(".winner");
 const newGame = document.getElementById("newGame");
+const pasaste=document.getElementById("pasasteLiga");
+
 
 let isTheCardFlipped = false;
 let firstCard, secondCard;
@@ -69,7 +71,7 @@ const reveal = (e) => {
   isTheCardFlipped = false;
   secondCard = currentCard;
   p.textContent = "Movimientos " + count++;
-
+console.log("soy movimientos",count)
   compareCards();
 };
 
@@ -83,11 +85,16 @@ function compareCards() {
   if (same) {
     marker++;
     console.log(marker);
+    console.log(count)
   }
+  //ganaste!!
   if (marker === 8) {
     cards.forEach((card) => (card.style.display = "none"));
     winner.style.display = "flex";
     newGame.style.display = "flex";
+  }
+  if(marker===8 && count===9){
+   pasaste.style.display="flex"
   }
 }
 /**
@@ -95,22 +102,22 @@ function compareCards() {
  * ##REINICIAR LA PARTIDA##
  * ########################
  */
-newGame.addEventListener("click", () => {
-  showGame();
+// newGame.addEventListener("click", () => {
+//   showGame();
 
-  newGame.style.display = "none";
-  winner.style.display = "none";
-  p.textContent = "Movimientos 0";
-  count = 1;
-  marker = 0;
+//   newGame.style.display = "none";
+//   winner.style.display = "none";
+//   p.textContent = "Movimientos 0";
+//   count = 1;
+//   marker = 0;
 
-  cards.forEach((card) => {
-    card.classList.remove("flipped");
-    card.addEventListener("click", reveal);
-    let posicionRandom = Math.floor(Math.random() * 3);
-    card.style.order = posicionRandom;
-  });
-});
+//   cards.forEach((card) => {
+//     card.classList.remove("flipped");
+//     card.addEventListener("click", reveal);
+//     let posicionRandom = Math.floor(Math.random() * 3);
+//     card.style.order = posicionRandom;
+//   });
+// });
 
 /**
  * eliminamos la funcion click
@@ -138,3 +145,37 @@ function nullBoard() {
 for (const card of cards) {
   card.addEventListener("click", reveal);
 }
+/**
+ * #######################
+ * ##Entramos en la liga##
+ * #######################
+ */
+const input = document.querySelector("#inputName");
+const form = document.forms.formulario;
+const gold = document.querySelector(".gold");
+const buttonRegistro=document.querySelector(".registrarse")
+
+let nameUser = input;
+const savedName = localStorage.getItem("names");
+
+//sacar el nombre del localStorage a la página
+if(savedName){
+  nameUser = savedName;
+  gold.textContent = "🏆 " + nameUser;
+}
+
+function addChampion(){
+  const elementName = form.elements.user
+  console.log(elementName)
+
+  //guardamos el nombre en localStorage
+  localStorage.setItem("names", elementName.value)
+  gold.textContent = "🏆 " + elementName.value;
+  
+  //resetear el input
+  elementName.value="";
+   
+}
+buttonRegistro.addEventListener("click", ()=>{
+  addChampion();
+})
