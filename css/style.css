@@ -14,24 +14,14 @@ body {
   background-size: cover;
   height: 100vh;
 }
-/* Titulo principal*/
-/* main {
-  border: 1px solid red;
-  width: 35%;
- 
-  text-align: center;
-  color: aliceblue;
-  font-family: Georgia, "Times New Roman", Times, serif;
-} */
-
-p {
-  display: none;
-  font-size: 30px;
-  user-select: none;
-  text-shadow: 1px 1px white;
-  /*padding: 15px;*/
-  margin-left: 10px;
+main{
+  border: solid 2px yellow;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
 }
+
+
 .board {
  
   margin: auto;
@@ -44,6 +34,7 @@ p {
   flex-direction: column;
   align-content: center;
   justify-content: center;
+ 
 }
 /*cards Container*/
 .container {
@@ -102,6 +93,12 @@ p {
 }
 #newGame {
   display: none;
+}
+#pasasteLiga{
+ border: solid 2px yellow;
+ display: none;
+ 
+  
 }
 
 /*########
@@ -177,7 +174,7 @@ p {
 
 
 
-  @media (max-width: 675px) {
+   @media (max-width: 675px) {
     .main p{
       text-align: center;
     }
@@ -189,5 +186,5 @@ p {
   
     
   
-  }
-
+  } 
+  
