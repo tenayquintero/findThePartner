@@ -183,6 +183,9 @@ main{
       max-height: 60%;
       flex-direction: row;
     }
+    .back{
+      font-size: 3rem;
+    }
   
     
   
