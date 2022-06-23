@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 body {
-  
   color: aliceblue;
   display: grid;
   place-content: center;
@@ -12,19 +11,17 @@ body {
   align-items: center;
   background-image: url(../images/2823368.jpg);
   background-size: cover;
-  height: 100vh;
+  margin: 1rem;
 }
-main{
-  border: solid 2px yellow;
+main {
   display: flex;
+ 
   justify-content: space-around;
-  font-size: 20px;
+  font-size: 25px;
 }
-
 
 .board {
- 
-  margin: auto;
+  /* margin: auto; */
   width: 600px;
   height: 600px;
   font-family: sans-serif;
@@ -34,7 +31,6 @@ main{
   flex-direction: column;
   align-content: center;
   justify-content: center;
- 
 }
 /*cards Container*/
 .container {
@@ -87,6 +83,8 @@ main{
   transition: transform 0.5s;
 }
 .winner {
+  margin: 1rem 0;
+  text-align: center;
   font-size: 3rem;
   color: aliceblue;
   display: none;
@@ -94,11 +92,44 @@ main{
 #newGame {
   display: none;
 }
-#pasasteLiga{
- border: solid 2px yellow;
- display: none;
- 
-  
+#listaDeUsuarios li {
+  list-style: none;
+  margin: 0.5rem 0;
+}
+#pasasteLiga {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  font-size: 20px;
+  display: none;
+}
+.registrarse {
+  margin: 0 auto;
+  height: 50px;
+  width: 90px;
+  box-shadow: 1px 1px 2px black;
+  border: none;
+  background: linear-gradient(
+    0deg,
+    rgb(87, 1, 116) 20%,
+    rgb(95, 253, 253) 100%
+  );
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10%;
+}
+input {
+  width: 200px;
+  height: 30px;
+  border: none;
+  border-bottom: solid 3px rgb(255, 255, 0);
+  background: transparent;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
 }
 
 /*########
@@ -110,6 +141,7 @@ main{
   text-align: center;
   align-items: center;
   justify-content: center;
+ 
 }
 .outer {
   position: relative;
@@ -172,22 +204,33 @@ main{
 
 /*Media Query*/
 
+/* @media (max-width: 675px) {
+  .main p {
+    text-align: center;
+  }
+  .board {
+    max-width: 50%;
+    max-height: 60%;
+    flex-direction: row;
+  }
+  .back {
+    font-size: 3rem;
+  }
+} */
+ 
 
-
-   @media (max-width: 675px) {
-    .main p{
-      text-align: center;
+ @media (max-width: 675px) {
+    main{
+       flex-direction: column;
+      }
+      .board{
+     width: 350px;
+     height: 700px;
     }
-    .board{
-      max-width: 50%;
-      max-height: 60%;
-      flex-direction: row;
-    }
-    .back{
-      font-size: 3rem;
-    }
-  
-    
-  
-  } 
-  
+      .back {
+    font-size: 4rem;
+  }
+      .front {
+   background-position: -30px 5px;
+  }
+  }

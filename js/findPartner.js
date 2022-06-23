@@ -94,14 +94,22 @@ function compareCards() {
   }
   if (marker === 8 && count === 9) {
     pasaste.style.display = "flex";
+    newGame.style.display = "none";
     buttonRegistro.addEventListener("click", () => {
       addChampion();
+       pasaste.style.display = "none";
+       newGame.style.display = "flex";
+        winner.style.display = "none";
     });
   }
-  if (marker === 8 && count === 10) {
+  if (marker ===8  && count === 10) {
     pasaste.style.display = "flex";
+    newGame.style.display = "none";
     buttonRegistro.addEventListener("click", () => {
       addChampionSilver();
+       pasaste.style.display = "none";
+       newGame.style.display = "flex";
+        winner.style.display = "none";
     });
   }
 }
