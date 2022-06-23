@@ -10,6 +10,7 @@
   <body>
     <main class="main">
       <ul id="listaDeUsuarios">
+        <li>NUESTRA LIGA</li>
         <li class="gold">🏆</li>
         <li class="silver">🥈</li>
       </ul>
@@ -17,12 +18,13 @@
       
     </main>
      
-    <section class="winner">😎 LO HAS CONSEGUIDO!!!</section>
+  
     <section class="board">
+        <section class="winner">😎 LO HAS CONSEGUIDO!!!</section>
       <div class="center">
         <div class="outer button">
           <button>
-           ¿JUGAMOS?
+           EMPEZAR
           </button>
           <span></span>
           <span></span>
@@ -31,7 +33,7 @@
       
       <div class="center" id="newGame">
         <div class="outer button">
-          <button><a href="http://127.0.0.1:5500/findThePartner/index.html">JUGAMOS DE NUEVO?</a></button>
+          <button><a href="http://127.0.0.1:5500/findThePartner/index.html">¿JUGAMOS DE NUEVO?</a></button>
           <span></span>
           <span></span>
         </div>
@@ -63,7 +65,7 @@
         </div>
       </section>
 
-      <section class="card card5" data-emoji="damon">
+       <section class="card card5" data-emoji="damon">
         <div class="content">
           <div class="front"></div>
           <div class="back">👹</div>
@@ -141,11 +143,15 @@
           <div class="front"></div>
           <div class="back">🥶</div>
         </div>
-      </section> 
+      </section>  
      <section id="pasasteLiga">
+        <p>Felicidaes! Has en entrado en liga. Introduce tu nombre
+            o alias para registrarte.
+          </p>
         <form name="formulario">
-          <label for="user">Nombre</label>
-          <input type="text" name="user" id="inputName" required />
+        
+          <label for="user"></label>
+          <input type="text" name="user" id="inputName"  placeholder="NOMBRE" required />
         </form>
         <button class="registrarse">registrarse</button>
       </section>
