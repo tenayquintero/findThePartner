@@ -4,8 +4,7 @@ const button = document.querySelector(".center");
 const p = document.querySelector("p");
 const winner = document.querySelector(".winner");
 const newGame = document.getElementById("newGame");
-const pasaste=document.getElementById("pasasteLiga");
-
+const pasaste = document.getElementById("pasasteLiga");
 
 let isTheCardFlipped = false;
 let firstCard, secondCard;
@@ -71,7 +70,7 @@ const reveal = (e) => {
   isTheCardFlipped = false;
   secondCard = currentCard;
   p.textContent = "Movimientos " + count++;
-console.log("soy movimientos",count)
+  console.log("soy movimientos", count);
   compareCards();
 };
 
@@ -85,7 +84,7 @@ function compareCards() {
   if (same) {
     marker++;
     console.log(marker);
-    console.log(count)
+    console.log(count);
   }
   //ganaste!!
   if (marker === 8) {
@@ -93,8 +92,17 @@ function compareCards() {
     winner.style.display = "flex";
     newGame.style.display = "flex";
   }
-  if(marker===8 && count===9){
-   pasaste.style.display="flex"
+  if (marker === 8 && count === 9) {
+    pasaste.style.display = "flex";
+    buttonRegistro.addEventListener("click", () => {
+      addChampion();
+    });
+  }
+  if (marker === 8 && count === 10) {
+    pasaste.style.display = "flex";
+    buttonRegistro.addEventListener("click", () => {
+      addChampionSilver();
+    });
   }
 }
 /**
@@ -104,7 +112,7 @@ function compareCards() {
  */
 // newGame.addEventListener("click", () => {
 //   showGame();
-
+//   pasaste.style.display = "none";
 //   newGame.style.display = "none";
 //   winner.style.display = "none";
 //   p.textContent = "Movimientos 0";
@@ -153,29 +161,42 @@ for (const card of cards) {
 const input = document.querySelector("#inputName");
 const form = document.forms.formulario;
 const gold = document.querySelector(".gold");
-const buttonRegistro=document.querySelector(".registrarse")
+const silver = document.querySelector(".silver");
+const buttonRegistro = document.querySelector(".registrarse");
 
-let nameUser = input;
+let nameUser;
+let nameUserSilver;
+
 const savedName = localStorage.getItem("names");
+const savedNameSilver = localStorage.getItem("namesSilver");
 
 //sacar el nombre del localStorage a la página
-if(savedName){
+if (savedName || savedNameSilver) {
   nameUser = savedName;
+  nameUserSilver=savedNameSilver
+
   gold.textContent = "🏆 " + nameUser;
+   silver.textContent = "🥈 " + nameUserSilver;
 }
 
-function addChampion(){
-  const elementName = form.elements.user
-  console.log(elementName)
+function addChampion() {
+  const elementName = form.elements.user;
 
   //guardamos el nombre en localStorage
-  localStorage.setItem("names", elementName.value)
+  localStorage.setItem("names", elementName.value);
   gold.textContent = "🏆 " + elementName.value;
-  
+
   //resetear el input
-  elementName.value="";
-   
+  elementName.value = "";
 }
-buttonRegistro.addEventListener("click", ()=>{
-  addChampion();
-})
+function addChampionSilver() {
+  const elementName = form.elements.user;
+
+  //guardamos el nombre en localStorage
+  localStorage.setItem("namesSilver", elementName.value);
+  silver.textContent = "🥈 " + elementName.value;
+
+  //resetear el input
+  elementName.value = "";
+}
+
