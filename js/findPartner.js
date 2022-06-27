@@ -22,7 +22,7 @@ let waitTurn = false;
   cards.forEach((card) => {
     let posicionRandom = Math.floor(Math.random() * 8);
     card.style.order = posicionRandom;
-      console.log(card.dataset.emoji,posicionRandom)
+     
   });
 })();
 
