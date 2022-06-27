@@ -5,10 +5,11 @@ const p = document.querySelector("p");
 const winner = document.querySelector(".winner");
 const newGame = document.getElementById("newGame");
 const pasaste = document.getElementById("pasasteLiga");
+const sound = new Audio("../sounds/cartasSound.mp3");
 
 let isTheCardFlipped = false;
 let firstCard, secondCard;
-let count = 1;
+let movements = 1;
 let marker = 0;
 let waitTurn = false;
 
@@ -19,8 +20,9 @@ let waitTurn = false;
  */
 (function mix() {
   cards.forEach((card) => {
-    let posicionRandom = Math.floor(Math.random() * 3);
+    let posicionRandom = Math.floor(Math.random() * 8);
     card.style.order = posicionRandom;
+      console.log(card.dataset.emoji,posicionRandom)
   });
 })();
 
@@ -39,6 +41,8 @@ const showGame = () => {
       clearInterval(drawCards);
     } else {
       document.querySelector(".card" + num++).style.display = "flex";
+      sound.play();
+     
     }
   }, 80);
 };
@@ -69,8 +73,8 @@ const reveal = (e) => {
   //Hacemos el segundo click
   isTheCardFlipped = false;
   secondCard = currentCard;
-  p.textContent = "Movimientos " + count++;
-  console.log("soy movimientos", count);
+  p.textContent = "Movimientos " + movements++;
+
   compareCards();
 };
 
@@ -78,38 +82,39 @@ const reveal = (e) => {
  * ##comparamos con operador ternario las cartas##
  * ###############################################
  */
+
 function compareCards() {
   let same = firstCard.dataset.emoji === secondCard.dataset.emoji;
   same ? removeReveal() : removeFlipped();
   if (same) {
     marker++;
-    console.log(marker);
-    console.log(count);
   }
+  
+
   //ganaste!!
   if (marker === 8) {
     cards.forEach((card) => (card.style.display = "none"));
     winner.style.display = "flex";
     newGame.style.display = "flex";
   }
-  if (marker === 8 && count === 9) {
+  if (marker === 8 && movements === 9) {
     pasaste.style.display = "flex";
     newGame.style.display = "none";
     buttonRegistro.addEventListener("click", () => {
       addChampion();
-       pasaste.style.display = "none";
-       newGame.style.display = "flex";
-        winner.style.display = "none";
+      pasaste.style.display = "none";
+      newGame.style.display = "flex";
+      winner.style.display = "none";
     });
   }
-  if (marker ===8  && count === 10) {
+  if (marker === 8 && movements === 10) {
     pasaste.style.display = "flex";
     newGame.style.display = "none";
     buttonRegistro.addEventListener("click", () => {
       addChampionSilver();
-       pasaste.style.display = "none";
-       newGame.style.display = "flex";
-        winner.style.display = "none";
+      pasaste.style.display = "none";
+      newGame.style.display = "flex";
+      winner.style.display = "none";
     });
   }
 }
@@ -181,10 +186,10 @@ const savedNameSilver = localStorage.getItem("namesSilver");
 //sacar el nombre del localStorage a la página
 if (savedName || savedNameSilver) {
   nameUser = savedName;
-  nameUserSilver=savedNameSilver
+  nameUserSilver = savedNameSilver;
 
   gold.textContent = "🏆 " + nameUser;
-   silver.textContent = "🥈 " + nameUserSilver;
+  silver.textContent = "🥈 " + nameUserSilver;
 }
 
 function addChampion() {
@@ -207,4 +212,3 @@ function addChampionSilver() {
   //resetear el input
   elementName.value = "";
 }
-
