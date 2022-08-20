@@ -1,5 +1,5 @@
 # FIND THE PARTNER
-JUego de cartas dónde se deberá encontrar la pareja de la carta que recién se ha girado.
+Juego de cartas dónde se deberá encontrar la pareja de la carta recien girada.
 
 ## EMPEZAMOS
 Al empezar el juego, se habrá de pulsar  el botón inicio partida, un vez pulsado se desplegaran todas las cartas simulando un reparto de baraja con
